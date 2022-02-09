@@ -2,7 +2,7 @@
 using System;
 
 namespace Flip_Coin
-{ 
+{
     class Programe
     {
 
@@ -23,13 +23,13 @@ namespace Flip_Coin
 
                 if (flip == HEAD)
                 {
-                    head = head + 1;   
+                    head = head + 1;
                     //Console.WriteLine("Head");
                 }
                 else
                 {
                     tail = tail + 1;
-                   // Console.WriteLine("Tail");
+                    // Console.WriteLine("Tail");
                 }
                 no_of_flip++;
             }
@@ -44,7 +44,47 @@ namespace Flip_Coin
                 Console.WriteLine($"Win Tail by {tail - head}");
             }
             else
+            {
                 Console.WriteLine("Tie");
+
+                int difference = 0;
+                head = 0;
+                tail = 0;
+                no_of_flip = 0;
+
+
+                while (difference < 2)
+                {
+
+                    Random random = new Random();
+                    int flip = random.Next(0, 2);
+
+                    int HEAD = 0;
+                    //int TAIL = 1;
+
+                    if (flip == HEAD)
+                    {
+                        head = head + 1;
+                    }
+                    else
+                    {
+                        tail = tail + 1;
+                    }
+
+
+                    if (head > tail)
+                    {
+                        difference = head - tail;
+                    }
+                    else if (head < tail)
+                    {
+                        difference = tail - head;
+                    }
+                    no_of_flip++;
+                }
+                Console.WriteLine($"HEAD:{head} , TAIL {tail} & Difference {difference}");
+            }
+
         }
 
     }
