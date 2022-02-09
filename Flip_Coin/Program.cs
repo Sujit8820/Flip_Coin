@@ -11,7 +11,8 @@ namespace Flip_Coin
             int no_of_flip = 0;
             int head = 0;
             int tail = 0;
-            while (no_of_flip < 17)
+            int WON = 21;
+            while (head < WON && tail < WON)
             {
 
                 Random random = new Random();
@@ -33,6 +34,17 @@ namespace Flip_Coin
                 no_of_flip++;
             }
             Console.WriteLine($"Head:{head} & Tail:{tail}");
+
+            if (head > tail)
+            {
+                Console.WriteLine($"Win Head by {head - tail}");
+            }
+            else if (head < tail)
+            {
+                Console.WriteLine($"Win Tail by {tail - head}");
+            }
+            else
+                Console.WriteLine("Tie");
         }
 
     }
